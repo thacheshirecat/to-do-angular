@@ -1,7 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<h1>Welcome, {{userName}}!</h1>
 
-  <h1>To Do List for {{month}}/{{day}}/{{year}}</h1>
-  <h3>{{currentFocus}}</h3>
-  <ul>
-    <li *ngFor="let currentTask of tasks">{{currentTask.description}}</li>
-  </ul>
+<form>
+  <input [(ngModel)]="userName" type="text" name="user">
+</form>
+
+<h1>To Do List for {{month}}/{{day}}/{{year}}</h1>
+<h3>{{currentFocus}}</h3>
+<app-task-list [childTaskList]="masterTaskList" (clickSender)="editTask($event)"></app-task-list>
+
+
+
+<app-edit-task></app-edit-task>

@@ -10,14 +10,27 @@ import { Task } from './models/task.model';
 export class AppComponent
 {
   currentFocus: string = 'Angular Homework';
-  tasks: Task[] =
-  [
-    new Task('Finish Angular homework for Epicodus course'),
-    new Task('Level up my guy'),
-    new Task('Eat food (again)')
-  ];
   currentTime = new Date();
   month: number = this.currentTime.getMonth() + 1;
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
+  selectedTask = null;
+
+  masterTaskList: Task[] =
+  [
+    new Task('Finish Angular homework for Epicodus course', 3),
+    new Task('Level up my guy', 2),
+    new Task('Eat food (again)', 1)
+  ];
+
+  editTask(clickedTask)
+  {
+    this.selectedTask = clickedTask;
+  }
+  finishedEditing()
+  {
+    this.selectedTask = null;
+  }
+
+
 }
